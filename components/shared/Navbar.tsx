@@ -2,9 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const navIcons = [
-  { src: '/assets/icons/search.svg', alt: 'search' },
-  { src: '/assets/icons/black-heart.svg', alt: 'heart' },
-  { src: '/assets/icons/user.svg', alt: 'user' },
+  { src: '/assets/icons/dark-mode.svg', alt: 'darkmode' },
+  { src: '/assets/icons/about-filled.svg', alt: 'about' },
 ]
 
 const Navbar = () => {
@@ -19,16 +18,16 @@ const Navbar = () => {
         <div className="flex items-center gap-5">
           {navIcons.map((icon) => (
             <Image
-            key={icon.alt}
-            src={icon.src}
-            alt={icon.alt}
-            width={28}
-            height={28}
-            className="object-contain"
+              key={icon.alt}
+              src={icon.src}
+              alt={icon.alt}
+              width={28}
+              height={28}
+              className="object-contain"
             />
-            ))}
-          </div>
-        </nav>
+          ))}
+        </div>
+      </nav>
     </header>
   )
 }
