@@ -13,9 +13,9 @@ export const scrapSiteProduct = async (url: string) => {
 
     const title = $('.pdp-e-i-head').text().trim();
 
-    // const images = $('#bx-pager-left-image-panel a img') || {}
+    const image = $('#bx-slider-left-image-panel li:first-child img').attr('src');
 
-    // const imageUrls = Object.keys(JSON.parse(images));
+    // const imageUrls = Object.keys(JSON.parse(image));
 
     const currentPrice = $('.payBlkBig').text().trim();
     const originalPrice = $('.pdpCutPrice').text().trim();
@@ -24,20 +24,26 @@ export const scrapSiteProduct = async (url: string) => {
     const outOfStock = currentPrice ? true : false;
 
     const description = $('.detailssubbox').text().trim();
-    const reviewsCount = 100 // Number($('span.total-rating.showRatingTooltip').text().trim().match(/\d+/)[0]) || 100
+    // const reviewsCount = 100 // Number($('span.total-rating.showRatingTooltip').text().trim().match(/\d+/)[0]) || 100
+    const reviewText = $('.pdp-e-i-ratings > div span:first-child').text().trim();
+
+    const avrgRatingText = $('.pdp-e-i-ratings > div span:first-child').text();
+    const stars = parseFloat(avrgRatingText);
+
+    const category = $('.breadCrumbWrapper2 .containerBreadcrumb:first-child a  span').text().trim();
 
     const data = {
       url,
       currency: 'Rs.',
-      // image: imageUrls[0],
+      image, //: imageUrls[0],
       title,
       currentPrice: Number(currentPrice) || Number(originalPrice),
       originalPrice: Number(originalPrice) || Number(currentPrice),
       priceHistory: [],
       discountRate: Number(discountRate),
-      category: 'category',
-      reviewsCount,
-      stars: 4.5,
+      category,
+      reviewsText: reviewText || '52 ratings',
+      stars,
       isOutOfStock: outOfStock,
       description,
       lowestPrice: Number(currentPrice) || Number(originalPrice),

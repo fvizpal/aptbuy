@@ -1,5 +1,7 @@
+import Modal from '@/components/shared/Modal';
 import PriceInfoCard from '@/components/shared/PriceInfoCard';
-import { getProductById } from '@/lib/actions';
+import ProductCard from '@/components/shared/ProductCard';
+import { getProductById, getSimilarProducts } from '@/lib/actions';
 import { Product } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,6 +16,8 @@ const ProductDetails = async ({ params: { id } }: Props) => {
   const product: Product = await getProductById(id);
 
   if (!product) redirect('/')
+
+  const similarProducts = await getSimilarProducts(id);
 
   return (
     <div className='product-container'>
@@ -33,23 +37,20 @@ const ProductDetails = async ({ params: { id } }: Props) => {
               <p className='text-[28px] font-semibold'>
                 {product.title}
               </p>
-              <Link href={product.url} target='_blank'>
+              <Link href={product.url} target='_blank' className='max-w-xs rounded-md bg-teal-500 hover:bg-teal-600 py-2 px-4 text-white'>
                 Visit Product
               </Link>
             </div>
             <div className='flex items-center gap-6'>
               <div>
                 <p className='font-semibold'>
-                  {product.reviewsCount}
+                  {product.reviewsText}
                 </p>
               </div>
             </div>
             <div className='flex flex-col gap-6'>
               <p>
-                {product.currency} {product.currentPrice}
-              </p>
-              <p>
-                {product.currency} {product.originalPrice}
+                Original Price: {product.currency} {product.originalPrice}
               </p>
             </div>
           </div>
@@ -77,6 +78,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
               />
             </div>
             {/* MODAL */}
+            <Modal productId={id} />
           </div>
         </div>
       </div>
@@ -90,6 +92,17 @@ const ProductDetails = async ({ params: { id } }: Props) => {
           </div>
         </div>
       </div>
+      {similarProducts && similarProducts?.length > 0 && (
+        <div className="py-14 flex flex-col gap-2 w-full">
+          <p className="section-text">Similar Products</p>
+
+          <div className="flex flex-wrap gap-10 mt-7 w-full">
+            {similarProducts.map((product) => (
+              <ProductCard key={product._id} product={product} />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

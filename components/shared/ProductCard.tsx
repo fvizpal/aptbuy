@@ -12,7 +12,7 @@ const ProductCard = ({ product }: Props) => {
       <div className="flex-1 relative flex flex-col gap-5 p-4 rounded-md">
         <Image
           src={product.image}
-          alt={'productImage'}
+          alt={product.title}
           width={200}
           height={200}
           className="max-h-[220px] object-contain w-full h-full bg-transparent"
