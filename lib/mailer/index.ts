@@ -24,6 +24,9 @@ export const generateEmailBody = async (product: EmailProductInfo, type: Notific
          or it has change of stock</p>
         <p> The product: ${product.url}</p>
         <p>Stay tuned for updates</p>
+
+        <p>With regards</p>
+        <p>Team AptBuy</p>
         </div>
       `;
       break;
@@ -34,6 +37,9 @@ export const generateEmailBody = async (product: EmailProductInfo, type: Notific
         <div>
           <p>The product is back in stock; to buy now click the link below</p>
           <p>${product.url}</p>
+
+          <p>With regards</p>
+          <p>Team AptBuy</p>
         </div>
       `;
       break;
@@ -45,6 +51,9 @@ export const generateEmailBody = async (product: EmailProductInfo, type: Notific
           <p>${product.title} is at its lowest price ever</p>
           <p>BUY NOW!</p>
           <p>${product.url}</p>
+
+          <p>With regards</p>
+          <p>Team AptBuy</p>
         </div>
       `;
       break;
