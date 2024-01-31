@@ -26,3 +26,18 @@ export type Product = {
   isOutOfStock: Boolean;
   users?: User[];
 };
+
+export type NotificationType =
+  | 'WELCOME'
+  | "CHANGE_OF_STOCK"
+  | "LOWEST_PRICE"
+
+export type EmailProductInfo = {
+  title: string,
+  url: string
+}
+
+export type EmailContent = {
+  subject: string,
+  body: string,
+}

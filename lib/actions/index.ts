@@ -6,6 +6,7 @@ import Product from "../models/product.model";
 import { scrapSiteProduct } from "../scrapper";
 import { getAveragePrice, getHighestPrice, getLowestPrice } from "../utils";
 import { User } from "@/types";
+import { generateEmailBody, sendEmail } from "../mailer";
 
 export const scrapeAndStore = async (productUrl: string) => {
   if (!productUrl) return;
@@ -87,9 +88,9 @@ export async function addUserEmailToProduct(productId: string, userEmail: string
 
       await product.save();
 
-      // const emailContent = await generateEmailBody(product, "WELCOME");
+      const emailContent = await generateEmailBody(product, "WELCOME");
 
-      // await sendEmail(emailContent, [userEmail]);
+      await sendEmail(emailContent, [userEmail]);
     }
   } catch (error) {
     console.log(error);
