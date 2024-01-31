@@ -34,7 +34,7 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 - Get email updates directly into your inbox about low prices and stock changes
   
 ## Contributing: 
-If you would like to contribute to mess-relay-app, you can follow these steps:
+If you would like to contribute to AptBuy, you can follow these steps:
 
 * Fork the repository
 * Create a new branch: git checkout -b new-feature
