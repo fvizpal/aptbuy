@@ -9,8 +9,8 @@ const Home = async () => {
   return (
     <>
       <section className='px-6 md:px-20 py-24'>
-        <div className='flex justify-around gap-16'>
-          <ProductCarousel />
+        <div className='flex justify-around gap-14'>
+          {/* <ProductCarousel /> */}
           <div className='flex basis-1/2 flex-col justify-center'>
             <p>
               Start your shopping here

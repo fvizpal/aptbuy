@@ -20,7 +20,7 @@ const heroImages = [
 
 const ProductCarousel = () => {
   return (
-    <Carousel className="w-full max-w-xs basis-1/2">
+    <Carousel className="w-full max-w-xs basis-1/2 sm:hidden">
       <CarouselContent>
         {heroImages.map((image) => (
           <CarouselItem key={image.alt}>
