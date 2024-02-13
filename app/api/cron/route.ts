@@ -4,7 +4,6 @@ import { scrapSiteProduct } from "@/lib/scrapper";
 import { getAveragePrice, getHighestPrice, getLowestPrice } from "@/lib/utils";
 import { NextResponse } from "next/server";
 
-export const maxDuration = 3000;
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
