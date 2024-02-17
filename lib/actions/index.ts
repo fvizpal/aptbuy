@@ -53,7 +53,7 @@ export const getAllProducts = async () => {
   try {
     await connectDatabase();
 
-    const products = await Product.find();
+    const products = await Product.find().sort({ updatedAt: 'desc' });
 
     return products;
   } catch (error) {
