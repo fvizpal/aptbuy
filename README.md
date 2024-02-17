@@ -11,8 +11,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-1. Clone the repository: git clone https://github.com/fvizpal/aptbuy.git
+1. Clone the repository:
+```bash
+git clone https://github.com/fvizpal/aptbuy.git
+```
 
+  
 2. Intall dependencies: 
 ```bash
 npm install
@@ -25,13 +29,11 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-
 ## Features:
 - Track prices of products
 - See all the latest information about the product
 - Get email updates directly into your inbox about low prices and stock changes
+- Auto updates product information using cron jobs
   
 ## Contributing: 
 If you would like to contribute to AptBuy, you can follow these steps:
