@@ -8,9 +8,6 @@ import { getAveragePrice, getHighestPrice, getLowestPrice } from "../utils";
 import { User } from "@/types";
 import { generateEmailBody, sendEmail } from "../mailer";
 
-const dynamic = "force-dynamic";
-const revalidate = 0;
-
 export const scrapeAndStore = async (productUrl: string) => {
   if (!productUrl) return;
 
@@ -47,6 +44,7 @@ export const scrapeAndStore = async (productUrl: string) => {
     );
 
     revalidatePath(`/products/${newProduct._id}`); // invalidate the product page for revalidation
+    revalidatePath('/');
   } catch (error) {
     console.log(error)
   }
@@ -57,6 +55,7 @@ export const getAllProducts = async () => {
     await connectDatabase();
 
     const products = await Product.find().sort({ updatedAt: 'desc' });
+    revalidatePath('/');
     return products;
   } catch (error) {
     console.log(error);
