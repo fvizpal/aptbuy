@@ -8,6 +8,9 @@ import { getAveragePrice, getHighestPrice, getLowestPrice } from "../utils";
 import { User } from "@/types";
 import { generateEmailBody, sendEmail } from "../mailer";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export const scrapeAndStore = async (productUrl: string) => {
   if (!productUrl) return;
 
@@ -44,7 +47,6 @@ export const scrapeAndStore = async (productUrl: string) => {
     );
 
     revalidatePath(`/products/${newProduct._id}`); // invalidate the product page for revalidation
-    revalidatePath('/');
   } catch (error) {
     console.log(error)
   }
