@@ -44,6 +44,7 @@ export const scrapeAndStore = async (productUrl: string) => {
     );
 
     revalidatePath(`/products/${newProduct._id}`); // invalidate the product page for revalidation
+    revalidatePath('/');
   } catch (error) {
     console.log(error)
   }
@@ -54,7 +55,6 @@ export const getAllProducts = async () => {
     await connectDatabase();
 
     const products = await Product.find().sort({ updatedAt: 'desc' });
-    revalidatePath('/')
     return products;
   } catch (error) {
     console.log(error);
