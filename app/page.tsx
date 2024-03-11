@@ -15,6 +15,8 @@ const Home = async () => {
             <p>
               Start your shopping here
             </p>
+            <p>git config --global http.proxy http://edcguest:edcguest@172.31.100.27:3128</p>
+            <p>git config --global --unset http.proxy </p>
             <Searchbar />
           </div>
         </div>
