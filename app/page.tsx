@@ -12,7 +12,7 @@ const Home = async () => {
         <div className='flex justify-around gap-14'>
           {/* <ProductCarousel /> */}
           <div className='flex basis-1/2 flex-col justify-center'>
-            <p>
+            <p className=' font-bold text-xl'>
               Start your shopping here
             </p>
             <p>git config --global http.proxy http://edcguest:edcguest@172.31.100.27:3128</p>
